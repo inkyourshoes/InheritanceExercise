@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Inheritance
-{
+namespace Inheritance;
+
     class Program
     {
         static void Main(string[] args)
@@ -28,12 +28,31 @@ namespace Inheritance
              *  
              * Creatively display the class member values 
              */
+            var myBird = new Bird();
+            myBird.WingColor = "white";
+            myBird.CanFly = true;
+            myBird.DoMigrate = true;
+            myBird.BeakLength = 5;
 
-            /*Create an object of your Reptile class
-             *  give values to your members using the object of your Reptile class
-             *  
-             * Creatively display the class member values 
-             */
+            var lizard = new Reptile
+            {
+                IsColdBlooded = true,
+                CanWalk = true,
+                Lifespan = 10,
+                IsScaly = true,
+            };
+
+            var myAnimals = new Animal[] { myBird, lizard };
+
+            foreach (var animal in myAnimals)
+            {
+                Console.WriteLine($"Alive:{animal.IsAlive}");
+                Console.WriteLine($"Age:{animal.Age} years old");
+                Console.WriteLine($"Legs:{animal.LegCount}");
+                Console.WriteLine($"It lives by:{animal.LandSeaAir}");
+                Console.WriteLine($"");
+                
+            }
+
         }
-    }
 }
